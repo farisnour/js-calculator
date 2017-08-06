@@ -11,7 +11,7 @@ var decimal_entered = false
 var result = 0 //For complicated expressions eg. 2+2*3
 
 var screen = document.querySelector('.screen')
-screen.textContent = 'RAH'
+screen.textContent = ''
 
 //ugly code
 var elem = document.getElementsByClassName('num')
@@ -195,6 +195,7 @@ function reset() {
   screen.textContent = ''
 }
 
-//$('.button').click(function () {
-//    console.log("The user clicked the button....")
+//not recognizing $ character
+//$(function() {
+//  $('div.dot').text("changed the text")
 //})
