@@ -1,6 +1,71 @@
-button {
-  height: 50px;
-  width: 50px;
+html {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
 }
+body {
+	font-size: 32px;
+}
+.calculator {
+	padding: 20px;
+	background-color: #f2f2f2;
+	width: 216px;
+	border: 1px solid #000;
+	border-radius: 30px;
+	box-shadow: 0 0 10px #999;
+}
+.row {
+	width: 216px;
+	height: 54px;
+}
+.row div, button {
+	float: left;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	box-sizing: border-box;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	margin: 2px;
+	cursor: pointer;
+}
+.number {
+	background: linear-gradient(#f2f2f2, #d9d9d9, #f2f2f2);
+}
+.number:hover {
+	background: linear-gradient(#d9d9d9, #f2f2f2, #d9d9d9);
+}
+.operator {
+	background: linear-gradient(#ccebff, #80ccff, #ccebff);
+}
+.operator:hover {
+	background: linear-gradient(#80ccff, #ccebff, #80ccff);
+}
+.row div.clear {
+	width: 158px;
+}
+.clear {
+	background: linear-gradient(#ffcce0, #ff99c2, #ffcce0);
+}
+.clear:hover {
+	background: linear-gradient(#ff99c2, #ffcce0, #ff99c2);
+}
+.equal {
+	background: linear-gradient(#ccffcc, #80ff80, #ccffcc);
+}
+.equal:hover {
+	background: linear-gradient(#80ff80, #ccffcc, #80ff80);
+}
+.screen {
+	background-color: #fff;
+	margin-bottom: 10px;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 1px solid #000;
+	font-size: 22px;
+}
+
 
 

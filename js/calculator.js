@@ -1,4 +1,7 @@
-//Decimal button is buggy
+//Issues: Decimal button is buggy
+//Improve: add a negative sign, implement bedmas
+//Improve: make screen numbers align right
+//Buggs: 2-.1
 
 var arrayA = []
 var arrayB = []
@@ -6,6 +9,9 @@ var operation = ''
 var oper_clicked = false
 var decimal_entered = false
 var result = 0 //For complicated expressions eg. 2+2*3
+
+var screen = document.querySelector('.screen')
+screen.textContent = 'RAH'
 
 //ugly code
 var elem = document.getElementsByClassName('num')
@@ -23,6 +29,7 @@ elem[9].addEventListener('click', function() {enterNumber(0)})
 
 
 //more ugly code
+//change to: var oper = document.querySelectorAll('oper')
 var oper = document.getElementsByClassName('oper')
 oper[0].addEventListener('click', function() {enterOperation('\/')})
 oper[1].addEventListener('click', function() {enterOperation('*')})
@@ -37,6 +44,7 @@ dot[0].addEventListener('click', function() {
   if (!decimal_entered) {
     decimal_entered = true
     console.log('.')
+    screen.textContent += '.'
     if (!oper_clicked) {
       arrayA.push('.')
     } else {
@@ -51,6 +59,7 @@ dot[0].addEventListener('click', function() {
 document.getElementsByClassName('ans')[0].addEventListener('click', function() {
   console.log('=')
   compute()
+  screen.textContent = result.toString()
   operation = ''
 })
 
@@ -121,11 +130,14 @@ function enterNumber(num) {
     if (arrayA[0] === 0 && !decimal_entered) {arrayA.pop()}
     arrayA.push(num)
     console.log(num)
+    screen.textContent += num.toString()
   }
   else if (oper_clicked){
-    if (arrayB[0] === 0 && !decimal_entered) {arrayB.pop()}
+    if (arrayB.length === 0) {screen.textContent = ''}
+    if (arrayB[0] === 0 && !decimal_entered) {arrayB.pop();}
     arrayB.push(num)
     console.log(num)
+    screen.textContent += num.toString()
   }
 }
 
@@ -145,6 +157,7 @@ function enterOperation(str) {
     oper_clicked = true
     decimal_entered = false
     console.log(str)
+    screen.textContent = result.toString()
   }
 }
 
@@ -179,10 +192,9 @@ function reset() {
   oper_clicked = false
   decimal_entered = false
   result = 0
+  screen.textContent = ''
 }
 
-jQuery('click' ,function () {
-  jQuery('#btnSignIn').click(function(){
-    console.log("The user clicked the button....")
-  })
-})
+//$('.button').click(function () {
+//    console.log("The user clicked the button....")
+//})
